@@ -1,0 +1,38 @@
+<div id="projects" class="projects">
+    
+    <form role="form"  ng-submit="saveProject()" class="input-form row">
+        <span class="col-xs-12 col-md-4 sidebar">
+            <span class="inner">
+                <h6>Your Projects</h6>
+                <h5 ng-hide="">Add your first Project</h5>
+                <div class="projct" ng-repeat = "projct in projects">
+                    <b>{{projct.projectTitle}}</b>
+                    <em ng-click="editProject($index)">Edit <i class="ion-edit"></i></em>
+                    <em ng-click="deleteProject($index)">Delete <i class="ion-close-round"></i></em>
+                </div>
+            </span>
+       </span>
+       <span class="col-xs-12 col-md-8 main-body">
+            <span class="form-group form-group-lg">
+                <label>Project Title</label>
+                <input class="required form-control" type="text" placeholder="Project Lamda" ng-model="projectTitle">
+            </span>
+            <span class="form-group form-group-lg">
+                <label>Project URL</label>
+                <input class="form-control" type="text" placeholder="https://www.google.com" ng-model="projectUrl">
+            </span>
+            <span class="form-group form-group-lg">
+                <label>Tell something about <span ng-show="projectTitle">{{projectTitle}}</span><span ng-hide="projectTitle">this project</span>.</label>
+                <textarea  class="form-control" type="text" placeholder="I worked on bla bla bla and bla" ng-model="projectDescription"></textarea>
+            </span>
+            <span class="form-group form-group-lg">
+                <label>Describe what you did in <span ng-show="projectTitle">{{projectTitle}}</span><span ng-hide="projectTitle">this project</span> ?</label>
+                <textarea  class="required form-control" type="text" placeholder="I worked on bla bla bla and bla" ng-model="projectRole"></textarea>
+            </span>
+            <span class="form-group">
+                <button type="submit" class="btn btn-primary" id="save_project"></i>Save To Project List</button>
+            </span>
+       </span>
+      
+    </form>
+</div>

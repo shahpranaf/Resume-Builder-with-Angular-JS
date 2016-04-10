@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html ng-app="resumeBuilder">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Cognizant Resume Builder</title>
+
+    <!-- Style sheets -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300italic,700' rel='stylesheet' type='text/css'>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+</head>
+
+<body ng-controller="mainCtrl">
+    <div class="text-center"><h2>Resume Builder</h2></div>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <ul id="navigation-links" class="nav navbar-nav" ng-controller="navCtrl">
+                <li ng-class="navClass('home')"><a href="#/">Home</a></li>
+                <li ng-class="navClass('basic')"><a href="#/basic">Basic Info</a></li>
+                <li ng-class="navClass('summary')"><a href="#/summary">Summary</a></li>
+                <li ng-class="navClass('experience')"><a href="#/experience">Experience</a></li>
+                <li ng-class="navClass('projects')"><a href="#/projects">Projects</a></li>
+                <li ng-class="navClass('qualifications')"><a href="#/qualifications">Education</a></li>
+                <li ng-class="navClass('skills')"><a href="#/skills">Skills</a></li>
+                <li ng-class="navClass('generate')"><a href="#/generate">Finish up</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    
+    <div id="content">
+        <div ng-view class="view"></div>
+    </div>
+
+    
+    <!-- Fonts -->
+    <link href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    
+
+    <!-- Plugins & Angular Scripts -->
+    <script src="app/library/jquery.min.js"></script>
+    <script src="app/library/angular.min.js"></script>
+    <script src="app/library/angular-route.js"></script>
+    <script src="app/library/ngStorage.min.js"></script>
+    <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+    
+
+    <!-- Application Script -->
+    <script src="app/app.js"></script>
+    <script src="app/factories.js"></script>
+
+   
+    
+
+    <!-- Product Controllers -->
+    <script src="app/controllers/home.js"></script>
+    <script src="app/controllers/basic.js"></script>
+    <script src="app/controllers/summary.js"></script>
+    <script src="app/controllers/experience.js"></script>
+    <script src="app/controllers/projects.js"></script>
+    <script src="app/controllers/qualifications.js"></script>
+    <script src="app/controllers/skills.js"></script>
+    <script src="app/controllers/generate.js"></script>
+    
+    <script>tinymce.init({ selector:'textarea' });</script>
+
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<div id="skills" class="skills">
+    
+    <form role="form"  ng-submit="saveSkills()" class="input-form row">
+        <span class="col-xs-12 col-md-4 sidebar">
+            <span class="inner">
+                <h6>Your Skills</h6>
+                <h5 ng-hide="skills[0]">Add your first Skill</h5>
+                <div class="skill" ng-repeat = "skill in skills">
+                    <b>{{skill.skill}}</b>
+                    <em ng-click="editSkill($index)">Edit <i class="ion-edit"></i></em>
+                    <em ng-click="deleteSkill($index)">Delete <i class="ion-close-round"></i></em>
+                </div>
+            </span>
+       </span>
+       <span class="col-xs-12 col-md-8 main-body">
+            <span class="form-group form-group-lg">
+                <label>Enter a <b>Skill</b> you possess.</label>
+                <input class="required form-control" type="text" placeholder="HTML" ng-model="skill">
+            </span>
+            <span class="form-group">
+                <button type="submit" class="btn btn-primary" id="save_skill"></i>Save To Skills List</button>
+            </span>
+       </span>
+      
+    </form>
+</div>

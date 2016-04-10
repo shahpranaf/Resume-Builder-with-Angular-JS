@@ -1,0 +1,115 @@
+<div id="generate" class="generate">
+    
+    <span class="hint">Click on section header to change it.</span>
+    <span class="hint">Rearrange items within a section by clicking and dragging it.</span>
+    
+    <div ng-hide="basics.name || basics.email || basics.phone || basics.id || summary.body || jobs.length > 0 || projects.length > 0 || qualifications.length > 0 || skills.length > 0">
+            You have not filled anything. <br/> We can't make your resume.
+    </div>
+    
+    <button class="btn btn-primary" ng-click="generate_pdf()">Download PDF</button>
+    
+    <div id="print-section" class="showpreview" ng-show="showingResume">
+        
+        <!-- Logo -->
+        <div class="logo"><img style="width: 200px; float: right;" src="https://latestthinking.cognizant.com/content/dam/Cognizant_Dotcom/images/cognizant-logo.png"></div>
+        
+        <!-- Basic info -->
+        <div class="row row-no-padding pdf-basic" ng-show="basics.name">
+            <div class="col-sm-12 col-md-3">&nbsp;</div>
+            <div class="col-sm-12 col-md-9">
+                <!-- Name -->
+                <span class="name" ng-show="basics.name">{{basics.name}}</span>
+                <span class="id" ng-show="basics.id">/{{basics.id}}</span><br>
+                
+                <span class="designation col-md-6" ng-show="basics.designation">{{basics.designation}}</span>
+                <span class="experience col-md-6" ng-show="basics.experience">{{basics.experience}}</span><br>
+                
+               
+                <span class="location col-md-6" ng-show="basics.email">{{basics.location}}</span>
+                <span class="email col-md-6" ng-show="basics.email">{{basics.email}}</span>
+            </div>
+        </div>
+        
+        <!-- Summary -->
+        <div class="row row-no-padding pdf-summary  pdf-content" ng-show="summary.body">
+            <span class="title col-md-3">Summary</span>
+            <p class="sumary col-md-9">{{summary.body}}</p>
+        </div>
+        
+        <!-- Skills -->
+        <div class="row row-no-padding pdf-skills" ng-show="skills.length>0">
+            <span class="title col-md-3">Skills & Experitse</span>
+            <ul class="skills col-md-9">
+                <li  ng-repeat="item in skills" class="skill">{{item.skill}}</li>
+            </ul>
+        </div>
+        
+        <!-- Project Details -->
+        <div class="row row-no-padding pdf-projects" ng-show="projects.length>0">
+            <span class="title col-md-3">Project Details</span>
+            <div class="projects col-md-9">
+                <div  ng-repeat="item in projects" class="skill">
+                    <h2 class="topic-title">{{item.projectTitle}}</h2><a href="item.projectUrl" class="project-url" ng-show="item.projectUrl">({{item.projectUrl}})</a>
+                    <div class="prjct-desctiption pdf-content" ng-show="item.projectDescription">
+                        <h4 class="topic-subtitle">Project Desctiption:</h4>
+                        <p>{{item.projectDescription}}</p>
+                    </div>
+                    <div class="prjct-role pdf-content" ng-show="item.projectRole">
+                        <h4 class="topic-subtitle">Roles and Responsibilities:</h4>
+                        <p>{{item.projectRole}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+         <!-- Experience -->
+        <div class="row row-no-padding pdf-jobs" ng-show="jobs.length>0">
+            <span class="title col-md-3">Experience</span>
+            <div class="jobs col-md-9">
+                <div  ng-repeat="item in jobs" class="job">
+                    <span class="topic-title-2">{{item.jobEmployer}}</span>
+                    <span class="job-location"  ng-show="item.jobLocation">({{item.jobLocation}})</span>
+                    <span class="job-tenure right"  ng-show="item.jobDuration"><i>{{item.jobDuration}}</i></span>
+                    
+                    <div class="job-role"  ng-show="item.jobRole">{{item.jobRole}}</div>
+                    
+                    <div class="prjct-desctiption pdf-content" ng-show="item.jobDescription">
+                        <p>{{item.jobDescription}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+         <!-- Education -->
+        <div class="row row-no-padding pdf-qualification" ng-show="qualifications.length>0">
+            <span class="title col-md-3">Education</span>
+            <div class="qualifications col-md-9">
+                <div  ng-repeat="item in qualifications" class="qualification">
+                    <span class="topic-title-2">{{item.qualification}}</span>
+                    <span class="qualificaiton-grade"  ng-show="item.qualificationGrade">({{item.qualificationGrade}})</span>
+                    <span class="qualify-year right"  ng-show="item.qualificationDate"><i>{{item.qualificationDate}}</i></span>
+                    
+                    <div class="qualify-institute"  ng-show="item.qualificationInstitute">{{item.qualificationInstitute}}</div>
+                    <div class="qualify-location"  ng-show="item.qualificationLocation">{{item.qualificationLocation}}</div>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal-lightbox" ng-show="lightbox"></div>
+
+    <div id="pdf-instructions" ng-show="instructions">
+        <i class="ion-close-round close" ng-click="closeInstructions()"></i>
+        <span class="text" ng-show="instructionsText">
+            <h1>Before you download your resume...</h1>
+            <p>
+                A print dialog will open where you can print it or save it as a PDF. Once it does, be sure <b>background colors/images are disabled</b>, <b>margins are set to default</b>, and <b>headers/footers are disabled</b>. If you are not sure how to do that, find instructions <a ng-click="showVideos()">here</a>.
+                <br/><br/>
+            </p>
+            <button class="btn btn-primary" ng-click="printResume()">Download Resume</button>
+            <a href="" target="_blank" style="width: 100%;"><img style="width: 100px; margin-top: 15px;" src="https://latestthinking.cognizant.com/content/dam/Cognizant_Dotcom/images/cognizant-logo.png"></a>
+        </span>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+<div id="experience" class="experience">
+    
+    <form role="form"  ng-submit="saveExperience()" class="input-form row">
+        <span class="col-xs-12 col-md-4 sidebar">
+            <span class="inner">
+                <h6>Your Experiences</h6>
+                <h5 ng-hide="jobs[0]">Add your first experience</h5>
+                <div class="cmpny" ng-repeat = "cmpny in jobs">
+                    <b>{{cmpny.jobRole}}</b>
+                    <b>{{cmpny.jobEmployer}}</b>
+                    <em ng-click="editEmployer($index)">Edit <i class="ion-edit"></i></em>
+                    <em ng-click="deleteEmployer($index)">Delete <i class="ion-close-round"></i></em>
+                </div>
+            </span>
+       </span>
+       <span class="col-xs-12 col-md-8 main-body">
+            <span class="form-group form-group-lg">
+                <label>For which <b>Company</b> did you work?</label>
+                <input class="required form-control" type="text" placeholder="Cognizant PVT LTD" ng-model="jobEmployerTitle">
+            </span>
+            <span class="form-group form-group-lg">
+                <label><b>Where</b> was <span ng-show="jobEmployerTitle">{{jobEmployerTitle}}</span><span ng-hide="jobEmployerTitle">the company</span> located?</label>
+                <input  class="form-control" type="text" placeholder="Pune, India" ng-model="jobEmployerLocation">
+            </span>
+            <span class="form-group form-group-lg">
+                <label><b>How Long</b> were you with <span ng-show="jobEmployerTitle">{{jobEmployerTitle}}</span><span ng-hide="jobEmployerTitle">the company</span>?</label>
+                <input  class="form-control" type="text" placeholder="January 2002 - January 2015" ng-model="jobEmployerDuration">
+            </span>
+            <span class="form-group form-group-lg">
+                <label>What was your <b>Role</b> at <span ng-show="jobEmployerTitle">{{jobEmployerTitle}}</span><span ng-hide="jobEmployerTitle">the company</span>?</label>
+                <input  class="required form-control" type="text" placeholder="Web Devloper" ng-model="jobEmployerRole">
+            </span>
+            <span class="form-group form-group-lg">
+                <label>Describe <b>what you did</b> while you were at <span ng-show="jobEmployerTitle">{{jobEmployerTitle}}</span><span ng-hide="jobEmployerTitle">the company</span>?</label>
+                <textarea  type="text" placeholder="I developed sites" ng-model="jobEmployerDescription"></textarea>
+            </span>
+            <span class="form-group">
+                <button type="submit" class="btn btn-primary" id="save_experience"></i>Save To Experience List</button>
+            </span>
+       </span>
+      
+    </form>
+</div>

@@ -1,0 +1,43 @@
+<div id="qualification" class="qualification">
+    
+    <form role="form"  ng-submit="saveQualification()" class="input-form row">
+        <span class="col-xs-12 col-md-4 sidebar">
+            <span class="inner">
+                <h6>Your Qualifications</h6>
+                <h5 ng-hide="qualifications[0]">Add your first qualification</h5>
+                <div class="qualifi" ng-repeat = "qualifi in qualifications">
+                    <b>{{qualifi.jobRole}}</b>
+                    <b>{{qualifi.qualification}}</b>
+                    <em ng-click="editQualification($index)">Edit <i class="ion-edit"></i></em>
+                    <em ng-click="deleteQualification($index)">Delete <i class="ion-close-round"></i></em>
+                </div>
+            </span>
+       </span>
+       <span class="col-xs-12 col-md-8 main-body">
+            <span class="form-group form-group-lg">
+                <label>Your <b>Degree</b> or any other <b>Qualification</b>?</label>
+                <input class="required form-control" type="text" placeholder="MSc" ng-model="qualification">
+            </span>
+            <span class="form-group form-group-lg">
+                <label><b>Where</b> did you earn your <span ng-show="qualification">{{qualification}}</span><span ng-hide="qualification">Degree/Qualification</span>?</label>
+                <input  class="required form-control" type="text" placeholder="Pune University" ng-model="qualificationInstitute">
+            </span>
+            <span class="form-group form-group-lg">
+                <label><b>Where</b> is the <span ng-show="qualificationInstitute">{{qualificationInstitute}}</span><span ng-hide="qualificationInstitute">Institute</span> located?</label>
+                <input  class="required form-control" type="text" placeholder="Pune, India" ng-model="qualificationLocation">
+            </span>
+            <span class="form-group form-group-lg">
+                <label><b>When</b> did you earn your <span ng-show="qualification">{{qualification}}</span><span ng-hide="qualification">Degree/Qualification</span>?</label>
+                <input  class="required form-control" type="text" placeholder="2011" ng-model="qualificationDate">
+            </span>
+            <span class="form-group form-group-lg">
+                <label><b>Grade</b> scored(if Applicable)</label>
+                <input class="form-control" type="text" placeholder="A / Disctinction / 90%" ng-model="qualificationGrade">
+            </span>
+            <span class="form-group">
+                <button type="submit" class="btn btn-primary" id="save_qualification"></i>Save To Qualification List</button>
+            </span>
+       </span>
+      
+    </form>
+</div>

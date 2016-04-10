@@ -1,0 +1,32 @@
+<div id="basic" class="basic">
+    
+    <span class="resume-hint"></span>
+    
+    <form role="form" ng-submit="saveBasic()" class="input-form" ng-init="basicInit()">
+        <span class="form-group">
+            <label>Cognizant ID</label>
+            <input type="number" ng-focus="makingChanges()" placeholder="123456" ng-model="basics.id">
+        </span>
+        <span class="form-group">
+            <label>Full Name</label>
+            <input type="text" ng-focus="makingChanges()" placeholder="Pranav Shah" ng-model="basics.name">
+        </span>
+        <span class="form-group">
+            <label>Designation</label>
+            <input type="text" ng-focus="makingChanges()" placeholder="Associate Projects" ng-model="basics.designation">
+        </span>
+        <span class="form-group">
+            <label>Experience</label>
+            <input type="text" ng-focus="makingChanges()" placeholder="4 years" ng-model="basics.experience">
+        </span>
+        <span class="form-group">
+            <label>Location</label>
+            <input type="text" ng-focus="makingChanges()" placeholder="Pune" ng-model="basics.location">
+        </span>
+        <span class="form-group">
+            <label>Email Address</label>
+            <input type="email" ng-focus="makingChanges()" placeholder="xyz@cognizant.com" ng-model="basics.email">
+        </span>
+      <button type="submit" class="btn btn-primary" id="save_basic"></i>Save Changes</button>
+    </form>
+</div>
